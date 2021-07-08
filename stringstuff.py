@@ -226,3 +226,27 @@ def find_longest_substring(str_in: str) -> int:
             start += 1
     return result
 
+
+def pig_latin(s: str) -> str:
+    result = ""
+
+    word_list = s.split(" ")
+    for word in word_list:
+        first_ltr = word[0]
+        new_word = word[1:] + first_ltr + "ay"
+
+        result += new_word + " "
+    return result.rstrip()
+
+
+def find_max_character(s: str) -> str:
+    """
+    Given a string return the character that occurs the most in the string
+    """
+    count_dict = {}
+    for ch in s:
+        if ch in count_dict.keys():
+            count_dict[ch] += 1
+        else:
+            count_dict[ch] = 1
+    return max(count_dict, key=count_dict.get)

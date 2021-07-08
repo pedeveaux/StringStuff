@@ -6,6 +6,7 @@ from stringstuff import (
     count_usa,
     create_string_mix,
     find_longest_substring,
+    find_max_character,
     find_sum_and_avg_of_digits,
     first_middle_last,
     put_lowercase_first,
@@ -16,6 +17,7 @@ from stringstuff import (
     count,
     get_middle_three,
     split_on_hyhens,
+    pig_latin,
 )
 
 
@@ -232,4 +234,29 @@ def test_remove_empty_strings(str_list, expected):
 )
 def test_find_longest_substring(str_in, expected):
     actual = find_longest_substring(str_in)
+    assert actual == expected
+
+
+@pytest.mark.parametrize(
+    "str_in, expected",
+    [
+        ("hello world", "ellohay orldway"),
+        ("disco ball", "iscoday allbay"),
+    ],
+)
+def test_pig_latin(str_in, expected):
+    actual = pig_latin(str_in)
+    assert actual == expected
+
+
+@pytest.mark.parametrize(
+    "str_in, expected",
+    [
+        ("basketball book", "b"),
+        ("forrest gump", "r"),
+        ("the return of the jedi", "e"),
+    ],
+)
+def test_find_max_character(str_in, expected):
+    actual = find_max_character(str_in)
     assert actual == expected
