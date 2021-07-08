@@ -207,15 +207,22 @@ def remove_empty_strings(str_list: list) -> list:
     return str_list
 
 
-def find_longest_substring(str_in: str) -> str:
+def find_longest_substring(str_in: str) -> int:
     """
     Find the length of the longest substring without repeating
     characters
     """
-    substr = ""
-    for ch in str_in:
-        if ch in substr:
-            continue
+    start = 0
+    end = 0
+    result = 0
+    charSet = set()
+    while end < len(str_in):
+        if str_in[end] not in charSet:
+            charSet.add(str_in[end])
+            end += 1
+            result = max(result, len(charSet))
         else:
-            substr = substr + ch
-    return substr
+            charSet.remove(str_in[start])
+            start += 1
+    return result
+

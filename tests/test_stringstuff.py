@@ -223,8 +223,11 @@ def test_remove_empty_strings(str_list, expected):
 @pytest.mark.parametrize(
     "str_in, expected",
     [
-        ("abcabcbbb", "abc"),
-        ("bbbbbb", "b"),
+        ("abcabcbbb", 3),
+        ("bbbbbb", 1),
+        ("pwwkew", 3),
+        ("au", 2),
+        ("dvdf", 3),
     ],
 )
 def test_find_longest_substring(str_in, expected):
