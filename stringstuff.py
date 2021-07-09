@@ -250,3 +250,16 @@ def find_max_character(s: str) -> str:
         else:
             count_dict[ch] = 1
     return max(count_dict, key=count_dict.get)
+
+
+def rotate_strings(s: str) -> str:
+    """
+    Function that rotates every word in a string
+    """
+    result = ""
+    word_list = s.split(" ")
+    for word in word_list:
+        rotated = word[1:] + word[0] + " "
+        result += rotated
+    return result.rstrip()
+

@@ -12,6 +12,7 @@ from stringstuff import (
     put_lowercase_first,
     put_string_in_middle,
     remove_empty_strings,
+    rotate_strings,
     show_reverse_letters,
     find,
     count,
@@ -259,4 +260,17 @@ def test_pig_latin(str_in, expected):
 )
 def test_find_max_character(str_in, expected):
     actual = find_max_character(str_in)
+    assert actual == expected
+
+
+@pytest.mark.parametrize(
+    "s, expected",
+    [
+        ("the quick brown fox", "het uickq rownb oxf"),
+        ("For the best is yet to come", "orF het estb si ety ot omec"),
+        ("This is a test", "hisT si a estt"),
+    ],
+)
+def test_rotate_strings(s, expected):
+    actual = rotate_strings(s)
     assert actual == expected
