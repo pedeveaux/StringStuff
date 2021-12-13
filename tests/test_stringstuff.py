@@ -1,5 +1,5 @@
 import pytest
-from stringstuff import (
+from stringstuff.stringstuff import (
     balanced_string,
     count_char_occurances,
     count_char_types,

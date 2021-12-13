@@ -262,4 +262,3 @@ def rotate_strings(s: str) -> str:
         rotated = word[1:] + word[0] + " "
         result += rotated
     return result.rstrip()
-
